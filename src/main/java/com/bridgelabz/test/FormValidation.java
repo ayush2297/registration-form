@@ -14,6 +14,13 @@ public class FormValidation
         return false;
     }
 
-
+    public boolean check_MobileNumber(String number)
+    {
+        Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]{2}[: :]{1}[0-9]{10}$");
+        Matcher match = NUMBER_PATTERN.matcher(number);
+        if (match.matches())
+            return true;
+        return false;
+    }
 
 }

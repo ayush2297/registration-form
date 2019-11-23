@@ -117,4 +117,47 @@ public class FormValidationTest
     }
 
 
+    @Test
+    public void givenMobileNumber_WhenPassedValid_ReturnTrue()
+    {
+        boolean number = formValidation.check_MobileNumber("91 9876543210");
+        Assert.assertTrue(number);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenNotPassedCountryCode_ReturnFalse()
+    {
+        boolean number = formValidation.check_MobileNumber("9876543210");
+        Assert.assertFalse(number);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenNotSeperatedCountryCode_ReturnFalse()
+    {
+        boolean number = formValidation.check_MobileNumber("919876543210");
+        Assert.assertFalse(number);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenPassedWithMultipleSpace_ReturnFalse()
+    {
+        boolean number = formValidation.check_MobileNumber("91   9876543210");
+        Assert.assertFalse(number);
+    }
+
+
+    @Test
+    public void givenMobileNumber_WhenPassedLessThanTenNumbers_ReturnFalse()
+    {
+        boolean number = formValidation.check_MobileNumber("91 3210");
+        Assert.assertFalse(number);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenPassedOtherThanNumeric_ReturnFalse()
+    {
+        boolean number = formValidation.check_MobileNumber("987ASD54@210");
+        Assert.assertFalse(number);
+    }
+
 }

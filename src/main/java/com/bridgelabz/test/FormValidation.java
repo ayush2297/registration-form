@@ -32,5 +32,30 @@ public class FormValidation
         return false;
     }
 
+    public boolean validate_password(String password){
+        String any = "a-zA-Z0-9";
+        String alphaNum = "a-zA-Z0-9";
+        String alphaSpl = "a-zA-Z@_+#";
+
+        String splChars = "[a-zA-Z0-9]*[@#_+][a-zA-Z0-9]*";
+        String caps = "[a-zA-Z0-9@#_+]*[A-Z][a-zA-Z0-9@#_+]*";
+        String numbers = "[a-zA-Z0-9@#_+]*[0-9][a-zA-Z0-9@#_+]*";
+
+        Pattern capital = Pattern.compile(caps);
+        Matcher matchCaps = capital.matcher(password);
+        Pattern num = Pattern.compile(numbers);
+        Matcher matchNums = num.matcher(password);
+        Pattern splCh = Pattern.compile(splChars);
+        Matcher matchSplCh = splCh.matcher(password);
+
+        if (matchCaps.matches()){
+            if (matchNums.matches()){
+                if (matchSplCh.matches()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }

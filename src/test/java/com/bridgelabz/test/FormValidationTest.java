@@ -160,4 +160,52 @@ public class FormValidationTest
         Assert.assertFalse(number);
     }
 
+    @Test
+    public void givenPassword_WhenContainsAtleastOneCapsChar_ReturnTrue()
+    {
+        boolean pass = formValidation.validate_password("Asjhh21@fds");
+        Assert.assertTrue(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsNoCapsChar_ReturnFalse()
+    {
+        boolean pass = formValidation.validate_password("asjhh21@fds");
+        Assert.assertFalse(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsAtleastOneNumber_ReturnTrue()
+    {
+        boolean pass = formValidation.validate_password("Asjhh21@fds");
+        Assert.assertTrue(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsNoNumbers_ReturnFalse()
+    {
+        boolean pass = formValidation.validate_password("Asjhh@fds");
+        Assert.assertFalse(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsNoSplChar_ReturnFalse()
+    {
+        boolean pass = formValidation.validate_password("Asjhh21fds");
+        Assert.assertFalse(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsMoreThanOneSplChar_ReturnFalse()
+    {
+        boolean pass = formValidation.validate_password("As1#jhh@fd@s");
+        Assert.assertFalse(pass);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsExactlyOneSplChar_ReturnTrue()
+    {
+        boolean pass = formValidation.validate_password("Asjhh123@fd12s");
+        Assert.assertTrue(pass);
+    }
 }

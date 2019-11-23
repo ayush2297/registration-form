@@ -23,4 +23,14 @@ public class FormValidation
         return false;
     }
 
+    public boolean check_Email(String mail)
+    {
+        Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9]([._+]{0,1}[a-zA-Z0-9])*[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2}){0,1}$");
+        Matcher match = EMAIL_PATTERN.matcher(mail);
+        if (match.matches())
+            return true;
+        return false;
+    }
+
+
 }

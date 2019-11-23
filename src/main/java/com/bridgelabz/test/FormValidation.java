@@ -14,27 +14,6 @@ public class FormValidation
         return false;
     }
 
-    public boolean check_Email(String mail)
-    {
-        Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9]([._+]{0,1}[a-zA-Z0-9])*[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2}){0,1}$");
-        Matcher match = EMAIL_PATTERN.matcher(mail);
-        if (match.matches())
-            return true;
-        return false;
-    }
-
-
-
-    public boolean check_MobileNumber(String number)
-    {
-        Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]{2}[: :]{1}[0-9]{10}$");
-        Matcher match = NUMBER_PATTERN.matcher(number);
-        if (match.matches())
-            return true;
-        return false;
-    }
-
-
 
 
 }

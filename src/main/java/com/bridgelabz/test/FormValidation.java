@@ -33,9 +33,6 @@ public class FormValidation
     }
 
     public boolean validate_password(String password){
-        String any = "a-zA-Z0-9";
-        String alphaNum = "a-zA-Z0-9";
-        String alphaSpl = "a-zA-Z@_+#";
 
         String splChars = "[a-zA-Z0-9]*[@#_+][a-zA-Z0-9]*";
         String caps = "[a-zA-Z0-9@#_+]*[A-Z][a-zA-Z0-9@#_+]*";
